@@ -1,0 +1,80 @@
+<div class="input-group mb-3">
+    <input type="text" 
+           class="form-control" 
+           placeholder="Search By Id" 
+           aria-label="Search By Id" 
+           aria-describedby="basic-addon2"
+           [(ngModel)]="id">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" 
+              type="button"
+              (click)="Search()">Search</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+      <form class="form-floating">
+          <input type="text" 
+                 class="form-control" 
+                 id="requestTime" 
+                 placeholder="Request Time" 
+                 [value]="logDetail.requestTime">
+          <label for="requestTime">Request Time</label>
+      </form>
+    </div>
+
+    <div class="col">
+      <form class="form-floating">
+          <input type="text" 
+                 class="form-control" 
+                 id="responseTime" 
+                 placeholder="Response Time" 
+                 [value]="logDetail.responseTime">
+          <label for="responseTime">Response Time</label>
+      </form>
+    </div>
+
+    <div class="col">
+      <form class="form-floating">
+          <input type="text" 
+                 class="form-control" 
+                 id="duration" 
+                 placeholder="Duration" 
+                 [value]="logDetail.duration">
+          <label for="duration">Duration</label>
+      </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+              Request
+            </div>
+            <div class="card-body">
+                <ngx-json-viewer [json]="request" [expanded]="false"></ngx-json-viewer>  
+            </div>
+          </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+
+        <div class="card">
+            <div class="card-header">
+              Response
+            </div>
+            <div class="card-body" style="overflow-x: auto;">
+                <!-- <textarea class="form-control" 
+                   id="response" 
+                   placeholder="Response" 
+                   [value]="logDetail.response">
+                </textarea> -->
+                <xml-viewer-component [xml]="response"></xml-viewer-component>
+            </div>
+          </div>
+    </div>
+</div>
